@@ -1,0 +1,41 @@
+{% extends "base1.html" %}
+
+{% block content %}
+<center>
+    <h1> Here are the active appointments for you</h1><br>
+<table>
+    <tr>
+        <th>User Name</th>
+        <th>Appointment Active</th>
+        <th>symptoms</th>
+        <th>Address</th>
+        <th>Mode of consultation</th>
+        <th>Phone Number</th>
+        <th>email</th>
+        <th>Time</th>
+        <th>Accept Appointment</th>
+    </tr>
+    {%for i in data%}
+   
+    <tr>
+        <td>{{ i[1]['username'] }}</td>
+        <td>{{ i[0]['status'] }}</td>
+        <td>{{ i[0]['symptoms'] }}</td>
+        <td>{{ i[1]['address'] }}</td>
+        <td>{{ i[0]['mode'] }}</td>
+        <td>{{ i[1]['phone'] }}</td>
+        <td>{{ i[1]['email'] }}</td>
+        <td>{{ i[0]['time'] }}</td>
+        <td><form action='/updateappointment' method="POST">
+        <input type="hidden" value="{{ i[0]['user_id'] }}" name="username">
+        <input type="hidden" value="{{ i[0]['doctor_id']}}" name="doctor_id">
+        <input type="hidden" value="{{ i[0]['time'] }}" name="date">
+        <button type="submit">Confirm</button>
+        </form></td>
+
+    </tr>
+
+    {%endfor%}
+</table>
+</center>
+{% endblock %}

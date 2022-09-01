@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<form action="/makeappointment" method="POST">
+    <label>Select Doctor</label>
+    <select name='doctor'>
+        {%for i in data%}
+        <option value={{i[0]['username']}}>{{i[0]['username']}} - Speciality {{i[1]['Speciality']}}</option>
+        {%endfor%}
+    </select>
+    <label>Date and Time</label><br>
+    <input type="datetime-local" name="date"><br>
+    <label>Symptoms</label>
+    <input type = 'Text' name="symptoms">
+    <label>Mode of Appointment</label>
+    <select name="mode">
+        <option value="offline">Offline</option>
+        <option value="online">Online</option>
+    </select>
+    <input type="submit">
+
+</form>
+{% endblock %}

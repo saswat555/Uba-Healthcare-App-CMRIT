@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<center><h1>{{data['name']}}</h1></center>
+
+<center><div id="googleMap" style="width:60%;height:400px;"></div></center>
+
+<script>
+function myMap() {
+var mapProp= {
+  center:new google.maps.LatLng({{data['latitude']}},{{data['longitude']}}),
+  zoom:5,
+};
+var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+}
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBswMboZNxjWVLoGKOtgKUDeGVbrJfxJOg&callback=myMap"></script>
+<center><h3>{{data['description']}}</h3></center>
+</body>
+</html>

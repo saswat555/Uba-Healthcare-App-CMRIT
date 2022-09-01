@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 style="text-align:center">Your currently book appointments</h2>
+    <br>
+    <br>
+<center>
+<table style="width: 80%;">
+    <tr>
+        <th>Hospital</th>
+        <th>Doctor name</th>
+        <th>Appointment Timing</th>
+        <th>Appointment Mode</th>
+        <th>Doctor Phone Number</th>
+        <th>Symptoms</th>
+        <th>Status</th>
+    </tr>
+    {%for i in data%}
+    <tr>
+        <td>{{i[2]['name']}}</td>
+        <td>{{i[0]['username']}}</td>
+        <td>{{i[1]['time']}}</td>
+        <td>{{i[1]['mode']}} </td>
+        <td>{{i[0]['phone']}}</td>
+        <td>{{i[1]['symptoms']}}</td>
+        <td>{{i[1]['status']}}</td>
+    </tr>
+    {%endfor%}
+</table>
+</center>
+<br>
+<br>
+<br>
+{% endblock %}

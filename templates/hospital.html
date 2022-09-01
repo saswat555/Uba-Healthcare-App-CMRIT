@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block style %}
+.clearfix {
+    content: "";
+    clear: both;
+    display: table;
+    border: 3px solid powderblue;
+    padding: 5px;
+    width: 80%;
+    margin: 20px;
+  }
+  .img2 {
+    float: right;
+    width: 200px;
+    height:200px;
+  }
+  .bb {
+    background-color: powderblue;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+{% endblock %}
+{% block content %}
+{% for i in data: %}
+<center>
+<div class="clearfix">
+    <img class="img2" src="./static/images/pineapple.jpg" alt="Pineapple" width="170" height="170">
+    <h2>{{i['name']}}</h2>
+    <h5>Phone Number- {{i['phone']}}</h5>
+    <h5>Email- {{i['email']}}</h5>
+
+    <form action="/fullview" method="POST" style="z-index:-1;padding: -10%;margin: -10%;">
+        <input type="hidden" name="name" value="{{i['id']}}">
+        <button class="bb" type="submit">View</button>
+    </form>
+
+</div>
+</center>
+<br>
+
+{% endfor %}
+{% endblock %}

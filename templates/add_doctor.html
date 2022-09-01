@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Login</title>
+      <style>
+form {
+  border: 3px solid #f1f1f1;
+  width: 80%;
+}
+
+/* Full-width inputs */
+input[type=text], input[type=password] , input[type=time] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* Add a hover effect for buttons */
+button:hover {
+  opacity: 0.8;
+}
+
+/* Extra style for the cancel button (red) */
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+/* Center the avatar image inside this container */
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+/* Avatar image */
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+/* Add padding to containers */
+.container {
+  padding: 16px;
+}
+
+/* The "Forgot password" text */
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+    display: block;
+    float: none;
+  }
+  .cancelbtn {
+    width: 100%;
+  }
+}
+
+      </style>
+   </head>
+   <body>
+      <center>
+      <form action="/adddoctor" method="POST">
+         <h1>{{msg}}</h1>
+         <h1>{{data}}</h1>
+         <div class="container">
+           <label for="uname"><b>Username</b></label>
+           <input type="text" placeholder="Enter Username" name="username" required>
+           <label for="psw"><b>Password</b></label>
+           <input type="password" placeholder="Enter Password" name="password" required>
+           <label for="email"><b>Email</b></label>
+           <input type="text" placeholder="Enter email" name="email" required>
+           <label for="phone"><b>Phone Number</b></label>
+           <input type="text" placeholder="Phone number" name="phone" required>
+           <label for="address"><b>Address</b></label>
+           <input type="text" placeholder="Enter Address" name="address" required>
+           <label for="speciality"><b>Speciality</b></label>
+           <input type="text" placeholder="Speciality" name="speciality" required>
+           <label for="cost"><b>Appointment Cost</b></label>
+           <input type="text" placeholder="Enter Cost" name="price" required>
+           <label for="time"><b>Opening Time</b></label>
+           <input type="time" placeholder="Enter Opening Time" name="open" required>
+           <label for="closing time"><b>Closing time</b></label>
+           <input type="time" placeholder="Enter Closing Time" name="close" required>
+           <label for="hospital"><b>Hospital</b></label><br>
+           <select name="hospital" style="  width: 100%;
+           padding: 12px 20px;
+           margin: 8px 0;
+           display: inline-block;
+           border: 1px solid #ccc;
+           box-sizing: border-box;">
+            {%for i in data%}
+            <option value={{i['id']}}>{{i['name']}}</option>
+            {%endfor%}
+            </select>
+           
+           <button type="submit">Add Doctor</button>
+           <label>
+           </label>
+         </div>
+         <div class="container" style="background-color:#f1f1f1">
+         </div>
+       </form>
+      </center>
+   </body>
+</html>
